@@ -1,0 +1,179 @@
+body {
+  margin: 0;           
+  background-color: #fff;
+  font-family: poppins, helvetica;
+}
+
+.video-app-layout {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  overflow: hidden;
+  background-color: white;
+}
+
+
+/* Sidebar should stay on the left */
+.video-app-layout .sidebar {
+  width: 220px; /* adjust to your sidebar */
+  flex-shrink: 0;
+}
+
+/* Video dashboard takes the middle space */
+.video-dashboard {
+  flex: 1;                  /* take up all available middle space */
+  padding: 20px;
+  margin: 0 20px;           /* space between sidebar & chatbot */
+  color: black;
+  max-width: unset;
+  min-height: 100vh;
+}
+
+.dashboard-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Filters */
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+.filter-buttons button {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: #ddd;
+  cursor: pointer;
+  color: #555;
+}
+.filter-buttons button:hover {
+  background: #aaa;
+  color: #fff;
+}
+
+/* Video grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.video-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.thumbnail-container {
+  position: relative;
+}
+.thumbnail-container img {
+  width: 100%;
+  display: block;
+  height: 160px;
+  object-fit: cover;
+}
+.thumbnail-container .duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.thumbnail-container iframe {
+  width: 100%;
+  height: 160px;
+  border-radius: 8px;
+}
+
+.video-info {
+  padding: 12px;
+}
+.video-info h5 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.video-info p {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Search bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #e5e5e5;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
+  width: 350px;
+}
+.search-bar input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #555;
+}
+
+
+.search-bar input::placeholder {
+  color: #555; 
+}
+
+.search-bar button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: rgb(89, 87, 87);
+}
+
+.search-bar button:hover {
+  background: #aaa;
+}
+
+/* Chat section stays fixed on the right */
+.chat-section {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  height: 420px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.filter-buttons button {
+  margin: 5px;
+  padding: 8px 14px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.filter-buttons button:hover {
+  background: #ddd;
+}
+
+.filter-buttons .active-tag {
+  background: #333;
+  color: white;
+  font-weight: bold;
+}

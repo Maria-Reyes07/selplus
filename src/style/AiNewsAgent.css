@@ -1,0 +1,126 @@
+
+.news-dashboard {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 3fr 2fr; /* News | Chatbot */
+  grid-column-gap: 40px;
+  height: 100%;
+  width: 100%;
+  margin-left: 100px;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+.dashboard-title {
+  grid-column: 1 / -1;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.dashboard-content {
+  display: contents;
+  gap: 20px;
+}
+
+/* Local News Section */
+.local-news {
+  flex: 2;
+  background: #f1f1f1;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #000000;
+}
+
+.news-card {
+  display: flex;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.news-thumbnail {
+  width: 120px;
+  height: 80px;
+  background: #ddd;
+  border-radius: 6px;
+  margin-right: 15px;
+}
+
+.news-details p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #000000;
+}
+
+.news-actions {
+  margin-top: 8px;
+}
+
+.news-actions button {
+  margin-right: 8px;
+}
+
+/* Chatbot Section */
+.chat-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #e5e5e5;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 6px 12px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.08);
+  margin-bottom: 15px;
+  width: 100%;  
+  max-width: 500px;
+  color: #555;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 8px;
+  background: transparent;
+}
+
+.search-bar.form-control::placeholder  {
+  color: #555 !important;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .dashboard-content {
+    flex-direction: column;
+  }
+
+  .local-news,
+  .chat-section {
+    width: 100%;
+  }
+}
+

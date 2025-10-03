@@ -1,0 +1,129 @@
+/* Sidebar.css */
+
+/* Base sidebar */
+.sidebar {
+  min-height: 100vh;
+  width: 220px;
+  background-color: #D9D9D9; 
+  color: #000000;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+/* Sidebar header / logo */
+.sidebar h2 {
+  font-size: 36px;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+}
+
+/* Nav list */
+.sidebar .nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar .nav-item:hover {
+  background-color: #495057;
+  color: #ffffff;
+}
+
+/* Icons (Bootstrap) */
+.sidebar .nav-item i {
+  font-size: 1.2rem;
+}
+
+/* Language switcher */
+.language-switch {
+  margin-bottom: 40px;
+  padding: 0.75rem;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 10px;
+  color: #333;
+}
+
+/* Dropdown */
+.language-switch select {
+  appearance: none; /* remove default arrow */
+  background: linear-gradient(180deg, #ffffff, #e9e9e9);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.4rem 1.5rem 0.4rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+/* Custom arrow */
+.language-switch select::after {
+  content: "▼";
+  font-size: 0.7rem;
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+}
+
+/* Hover / Focus effect */
+.language-switch select:hover {
+  background: #f0f0f0;
+  border-color: #999;
+}
+
+.language-switch select:focus {
+  outline: none;
+  border-color: #666;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ----------------- */
+/* Responsive Design */
+/* ----------------- */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem;
+  }
+
+  .sidebar h2 {
+    display: none; /* Hide title/logo on mobile */
+  }
+
+  .sidebar .nav {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .language-switch {
+    margin-top: 0;
+    border-top: none;
+  }
+}
