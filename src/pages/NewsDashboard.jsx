@@ -44,7 +44,6 @@ export default function NewsDashboard() {
             {filteredNews.length > 0 ? (
               filteredNews.map((news, index) => (
                 <div key={index} className="news-card">
-                  <div className="news-thumbnail"></div>
                   <div className="news-details">
                     <p><strong>Headline:</strong> {news.headline}</p>
                     <p><strong>Relevance:</strong> {news.relevance}</p>

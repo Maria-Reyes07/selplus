@@ -46,6 +46,15 @@
   color: #ffffff;
 }
 
+.nav-item.active {
+  color: #ff4500;
+  font-weight: bold;
+  border-left: 4px solid #ff4500;
+  padding-left: 12px;
+  background-color: rgba(255, 69, 0, 0.1);
+  border-radius: 4px;
+}
+
 /* Icons (Bootstrap) */
 .sidebar .nav-item i {
   font-size: 1.2rem;

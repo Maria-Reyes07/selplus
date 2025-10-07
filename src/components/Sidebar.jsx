@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "../style/Sidebar.css";
 
@@ -8,13 +9,25 @@ export default function Sidebar() {
       <div>
         <div className="flex items-center mb-8">
           <div className="w-10 h-10 bg-gray-300 rounded"></div>
-          <span className="logo">SLE Plus</span>
+          <span className="logo">SEL Plus</span>
         </div>
         <h2>Hello, <br /> Mentor!</h2>
         <nav className="nav">
-          <a href="/news" className="nav-item">AI News Agent</a>
-          <a href="/videos" className="nav-item">Video Rec.</a>
-          <a href="/groups" className="nav-item">Group Rec.</a>
+          <NavLink to="/" className="nav-item">
+            <i className="bi bi-house-door"></i> Home
+          </NavLink>
+
+          <NavLink to="/news" className="nav-item">
+            <i className="bi bi-newspaper"></i> AI News Agent
+          </NavLink>
+
+          <NavLink to="/videos" className="nav-item">
+            <i className="bi bi-play-circle"></i> Video Rec.
+          </NavLink>
+
+          <NavLink to="/groups" className="nav-item">
+            <i className="bi bi-people"></i> Group Rec.
+          </NavLink>
         </nav>
       </div>
       <div>
