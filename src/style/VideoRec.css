@@ -291,15 +291,5 @@ body {
   color: var(--gray-dark);
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-  .video-app-layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-  }
 
-  .chat-section {
-    height: auto;
-  }
-}
 
