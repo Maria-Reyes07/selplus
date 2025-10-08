@@ -1,138 +1,113 @@
-/* Sidebar.css */
+:root {
+  --blue: #5B81C1;
+  --orange: #F37863;
+}
 
-/* Base sidebar */
+/* Sidebar Container */
 .sidebar {
-  min-height: 100vh;
-  width: 220px;
-  background-color: #D9D9D9; 
-  color: #000000;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.3s ease;
+  background-color: #fff;
+  padding: 30px 20px;
+  width: 230px;
+  min-height: 100vh;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Sidebar header / logo */
 .sidebar h2 {
-  font-size: 36px;
-  margin-bottom: 2rem;
-  font-weight: bold;
   text-align: center;
-  color: #000000;
+  color: var(--blue);
+  font-size: 1.6rem;      
+  font-weight: 700;
+  margin-bottom: 25px;
+  line-height: 1.3;
 }
 
-/* Nav list */
-.sidebar .nav {
+
+
+/* Logo Section */
+.sidebar-logo {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;    /* center horizontally */
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-img {
+  width: 80px;            /* bigger logo */
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.logo-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--blue);
+  letter-spacing: 0.5px;
+}
+
+
+/* Nav Links */
+.nav {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 18px; /* increased spacing (default was 10px) */
+  margin-top: 25px; /* adds space below “Hello, Mentor!” */
 }
 
-.sidebar .nav-item {
+.nav-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: #000000;
+  gap: 8px;
+  color: #444;
   text-decoration: none;
-  font-size: 1rem;
-  padding: 0.5rem 0.75rem;
+  padding: 8px 10px;
   border-radius: 6px;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.sidebar .nav-item:hover {
-  background-color: #495057;
-  color: #ffffff;
+.nav-item i {
+  font-size: 1.1rem;
+  color: var(--orange);
+}
+
+.nav-item:hover {
+  background-color: var(--orange);
+  color: #fff;
+}
+
+.nav-item:hover i {
+  color: #fff;
 }
 
 .nav-item.active {
-  color: #ff4500;
-  font-weight: bold;
-  border-left: 4px solid #ff4500;
-  padding-left: 12px;
-  background-color: rgba(255, 69, 0, 0.1);
-  border-radius: 4px;
+  background-color: var(--orange);
+  color: #fff;
 }
 
-/* Icons (Bootstrap) */
-.sidebar .nav-item i {
-  font-size: 1.2rem;
-}
-
-/* Language switcher */
+/* Language Selector */
 .language-switch {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--orange);
+  background-color: var(--white);   /* 🔸 stays white */
+  color: var(--orange);             /* text matches sidebar */
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 40px;
   margin-bottom: 40px;
-  padding: 0.75rem;
-  border-top: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f5f5f5;
-  border-radius: 10px;
-  color: #333;
-}
-
-/* Dropdown */
-.language-switch select {
-  appearance: none; /* remove default arrow */
-  background: linear-gradient(180deg, #ffffff, #e9e9e9);
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 0.4rem 1.5rem 0.4rem 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #333;
+  text-align: center;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-  position: relative;
+  transition: all 0.3s ease;
 }
 
-/* Custom arrow */
-.language-switch select::after {
-  content: "▼";
-  font-size: 0.7rem;
-  position: absolute;
-  right: 1rem;
-  pointer-events: none;
-}
-
-/* Hover / Focus effect */
-.language-switch select:hover {
-  background: #f0f0f0;
-  border-color: #999;
-}
-
-.language-switch select:focus {
-  outline: none;
-  border-color: #666;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-}
-
-/* ----------------- */
-/* Responsive Design */
-/* ----------------- */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0.5rem;
-  }
-
-  .sidebar h2 {
-    display: none; /* Hide title/logo on mobile */
-  }
-
-  .sidebar .nav {
-    flex-direction: row;
-    gap: 1rem;
-  }
-
-  .language-switch {
-    margin-top: 0;
-    border-top: none;
-  }
+.language-switch:hover {
+  border-color: var(--blue);
+  color: var(--blue);
 }

@@ -25,9 +25,9 @@ export default function NewsDashboard() {
 
       {/* Main Content */}
       <div className="news-dashboard">
-        <h2 className="dashboard-title">AI News Agent Dashboard</h2>
+        <h2 className="news-dashboard-title">AI News Agent Dashboard</h2>
 
-        <div className="dashboard-content">
+        <div className="news-dashboard-content">
           {/* Local News */}
           <div className="local-news">
             <div className="local-news-header">
@@ -51,7 +51,7 @@ export default function NewsDashboard() {
                     <p><strong>Date:</strong> {news.date}</p>
                     <p><strong>Address:</strong> {news.address}</p>
                     <div className="news-actions">
-                      <button className="btn btn-success btn-sm">View</button>
+                      <button className="btn btn-success btn-sm">Accept</button>
                       <button className="btn btn-secondary btn-sm">Dismiss</button>
                     </div>
                   </div>

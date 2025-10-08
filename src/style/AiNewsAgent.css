@@ -1,8 +1,28 @@
 
+/* SEL+ Colors     */
+:root {
+  /* Brand Colors */
+  --sel-blue: #5B81C1;
+  --sel-orange: #F37863;
+  --sel-orange-dark: #E45B43;
+
+  /* Neutral Palette */
+  --sel-white: #FFFFFF;
+  --sel-black: #000000;
+  --sel-gray-light: #F9F9F9;
+  --sel-gray-mid: #E5E5E5;
+  --sel-gray-dark: #444444;
+
+  /* Shadows & Accents */
+  --sel-shadow-light: rgba(0, 0, 0, 0.05);
+  --sel-shadow-mid: rgba(0, 0, 0, 0.1);
+}
+
+/* Layout  */
 .news-dashboard {
   display: grid;
   grid-template-rows: auto 1fr;
-  grid-template-columns: 3fr 2fr; /* News | Chatbot */
+  grid-template-columns: 1.8fr .8fr; /* News | Chatbot */
   grid-column-gap: 40px;
   height: 100%;
   width: 100%;
@@ -13,28 +33,36 @@
   display: grid;
   grid-template-columns: 250px 1fr;
   min-height: 100vh;
+  background: var(--sel-gray-light);
 }
 
-.dashboard-title {
+
+/* Title & Content */
+.news-dashboard-title {
   grid-column: 1 / -1;
   font-size: 36px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-  color: #000000;
+  color: var(--sel-blue) !important;
 }
 
-.dashboard-content {
+.news-dashboard-content {
   display: contents;
   gap: 20px;
 }
 
-/* Local News Section */
+
+/* Local News Section  */
 .local-news {
   flex: 2;
-  background: #f1f1f1;
-  border-radius: 8px;
-  padding: 15px;
+  background: var(--sel-white);
+  border-radius: 10px;
+  padding: 20px 30px; /* slightly larger padding */
+  width: 100%;
+  max-width: 900px; /* lets it stretch wider */
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
+  margin: 0 auto; /* center it */
 }
 
 .section-title {
@@ -42,22 +70,32 @@
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 15px;
-  color: #000000;
+  color: var(--sel-blue);
+  border-bottom: 1px solid var(--sel-gray-mid);
+  padding-bottom: 5px;
 }
 
+
+/* News Cards */
 .news-card {
   display: flex;
-  background: white;
+  background: var(--sel-white);
   border-radius: 8px;
   margin-bottom: 15px;
-  padding: 10px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12);
 }
 
 .news-thumbnail {
   width: 120px;
   height: 80px;
-  background: #ddd;
+  background: var(--sel-gray-mid);
   border-radius: 6px;
   margin-right: 15px;
 }
@@ -65,37 +103,118 @@
 .news-details p {
   margin: 4px 0;
   font-size: 14px;
-  color: #000000;
+  color: var(--sel-gray-dark);
 }
 
+/* Action Buttons (Accept / Dismiss) */
 .news-actions {
   margin-top: 8px;
 }
 
 .news-actions button {
-  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
+
+
+.btn-success {
+  background-color: rgba(255, 69, 0, 0.1) !important; /* light, see-through orange */
+  border: 1px solid var(--sel-orange) !important;
+  color: var(--sel-orange) !important;
+  font-weight: 600;
+  padding: 6px 14px !important;
+  border-radius: 6px !important;
+  margin-right: 10px !important;
+  transition: all 0.2s ease;
+}
+
+.btn-success:hover {
+  background-color: var(--sel-orange) !important; /* solid orange on hover */
+  color: var(--sel-white) !important;
+  border-color: var(--sel-orange-dark) !important;
+}
+
+/* Dismiss Button (Gray) */
+.btn-secondary {
+  background-color: var(--sel-gray-mid) !important;
+  border-color: var(--sel-gray-mid) !important;
+  color: var(--sel-gray-dark) !important;
+  font-weight: 600;
+  padding: 6px 14px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--sel-gray-dark) !important;
+  color: var(--sel-white) !important;
+  border-color: var(--sel-gray-dark) !important;
+}
+
 
 /* Chatbot Section */
 .chat-section {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  background: var(--sel-gray-light); /* same as page bg */
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: none;
+  border: none;
 }
+
+/* Inner chatbot card */
+.chat-section .chat-card {
+  background: var(--sel-white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top orange header inside chatbot */
+.chat-section .chat-card-header {
+  background: linear-gradient(90deg, var(--sel-orange), var(--sel-blue));
+  color: var(--sel-white);
+  padding: 14px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Chat input area */
+.chat-section .chat-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid var(--sel-gray-mid);
+  background: var(--sel-white);
+}
+
+
+
+/* Search Bar */
 
 .search-bar {
   display: flex;
   align-items: center;
-  background: #e5e5e5;
-  border: 1px solid #ccc;
+  background: var(--sel-white);
+  border: 1px solid var(--sel-gray-mid);
   border-radius: 25px;
   padding: 6px 12px;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.08);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
   margin-bottom: 15px;
-  width: 100%;  
+  width: 100%;
   max-width: 500px;
-  color: #555;
+  color: var(--sel-gray-dark);
 }
 
 .search-bar input {
@@ -105,22 +224,28 @@
   font-size: 14px;
   padding: 8px;
   background: transparent;
+  color: var(--sel-gray-dark);
 }
 
-.search-bar.form-control::placeholder  {
-  color: #555 !important;
+.search-bar input::placeholder {
+  color: #888;
 }
 
 
-/* Responsive */
+/* Responsive Design          */
 @media (max-width: 992px) {
-  .dashboard-content {
-    flex-direction: column;
+  .news-dashboard {
+    grid-template-columns: 1fr;
+    margin-left: 0;
   }
 
   .local-news,
   .chat-section {
-    width: 100%;
+    max-width: 100%;
+  }
+
+  .chat-section .chat-card {
+    max-width: 100%;
   }
 }
 

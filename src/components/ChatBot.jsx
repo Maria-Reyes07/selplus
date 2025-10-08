@@ -37,11 +37,7 @@ export default function ChatBot() {
             <div className="chat-bubble">{msg.text}</div>
 
             {msg.sender === "user" && (
-              <img
-                src="/user-avatar.png"
-                alt="User"
-                className="chat-avatar"
-              />
+              <i className="bi bi-person-fill chat-avatar"></i>
             )}
           </div>
         ))}

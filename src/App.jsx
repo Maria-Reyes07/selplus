@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import NewsDashboard from "./pages/NewsDashboard";
 import VideoDashboard from "./pages/VideoDashboard";
 import GroupDashboard from "./pages/GroupDashboard";
-import Home from "./pages/Homepage";
+import Home from "./pages/LandingPage";
 import "./App.css";
 
 export default function App() {

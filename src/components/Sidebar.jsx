@@ -1,16 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import selLogo from "../assets/selgentic-logo.jpg";
 import "../style/Sidebar.css";
 
 export default function Sidebar() {
   return (
     <div className="sidebar">
       <div>
-        <div className="flex items-center mb-8">
-          <div className="w-10 h-10 bg-gray-300 rounded"></div>
-          <span className="logo">SEL Plus</span>
+        <div className="sidebar-logo">
+          <img src={selLogo} alt="SELgentic Logo" className="logo-img" />
         </div>
+
         <h2>Hello, <br /> Mentor!</h2>
         <nav className="nav">
           <NavLink to="/" className="nav-item">
@@ -33,7 +34,7 @@ export default function Sidebar() {
       <div>
         <select className="language-switch">
           <option>English</option>
-          <option>Spanish</option>
+          <option>Español</option>
         </select>
       </div>
     </div>

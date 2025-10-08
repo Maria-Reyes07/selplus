@@ -1,179 +1,305 @@
+
+/* SEL+ Colors */
+:root {
+  --blue: #5B81C1;
+  --orange: #F37863;
+  --orange-dark: #E45B43;
+  --white: #FFFFFF;
+  --gray-light: #F5F6FA;
+  --gray-mid: #E5E5E5;
+  --gray-dark: #444444;
+}
+
+
+/* General Layout */
 body {
-  margin: 0;           
-  background-color: #fff;
-  font-family: poppins, helvetica;
+  margin: 0;
+  background-color: var(--gray-light);
+  font-family: "Poppins", Helvetica, sans-serif;
 }
 
 .video-app-layout {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-  overflow: hidden;
-  background-color: white;
-}
-
-
-/* Sidebar should stay on the left */
-.video-app-layout .sidebar {
-  width: 220px; /* adjust to your sidebar */
-  flex-shrink: 0;
-}
-
-/* Video dashboard takes the middle space */
-.video-dashboard {
-  flex: 1;                  /* take up all available middle space */
-  padding: 20px;
-  margin: 0 20px;           /* space between sidebar & chatbot */
-  color: black;
-  max-width: unset;
-  min-height: 100vh;
-}
-
-.dashboard-title {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-/* Filters */
-.filter-buttons {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 25px;
-}
-.filter-buttons button {
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  background: #ddd;
-  cursor: pointer;
-  color: #555;
-}
-.filter-buttons button:hover {
-  background: #aaa;
-  color: #fff;
-}
-
-/* Video grid */
-.video-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: 260px 1fr;
+  background: var(--gray-light);
+  min-height: 100vh;     
+  overflow-y: auto;      
+  overflow-x: hidden;    
 }
-.video-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+
+
+.video-app-layout .sidebar {
+  width: 230px;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 5; /* keep shadow on top */
+}
+
+
+
+/* Main content */
+.video-dashboard {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "controls controls"
+    "videos chat";
+  grid-template-columns: 2fr 0.8fr; /* main | chat */
+  grid-template-rows: auto auto 1fr;
+  gap: 30px;
+  padding: 30px;
+  background: var(--gray-light);
+  color: var(--gray-dark);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Chatbot Section */
+.chat-section {
+  grid-area: chat;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--sel-gray-light); /* same as page bg */
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+}
+
+/* Inner chatbot card */
+.chat-section .chat-card {
+  background: var(--sel-white);
+  border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
-.thumbnail-container {
-  position: relative;
-}
-.thumbnail-container img {
-  width: 100%;
-  display: block;
-  height: 160px;
-  object-fit: cover;
-}
-.thumbnail-container .duration {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background: rgba(0,0,0,0.7);
-  color: #fff;
-  padding: 2px 6px;
-  font-size: 12px;
-  border-radius: 4px;
+
+/* Top orange header inside chatbot */
+.chat-section .chat-card-header {
+  background: linear-gradient(90deg, var(--sel-orange), var(--sel-blue));
+  color: var(--sel-white);
+  padding: 14px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
-.thumbnail-container iframe {
-  width: 100%;
-  height: 160px;
-  border-radius: 8px;
+/* Chat input area */
+.chat-section .chat-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid var(--sel-gray-mid);
+  background: var(--sel-white);
 }
 
-.video-info {
-  padding: 12px;
-}
-.video-info h5 {
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-.video-info p {
-  font-size: 12px;
-  color: #666;
+
+.video-dashboard-title {
+  grid-area: title;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 10px;
 }
 
-/* Search bar */
+
+/* Search Bar */
 .search-bar {
   display: flex;
   align-items: center;
-  background: #e5e5e5;
+  justify-content: space-between;
+  background: var(--white);
   border-radius: 25px;
-  padding: 5px 10px;
-  margin-bottom: 20px;
+  padding: 6px 14px;
   margin: 0 auto 20px auto;
-  width: 350px;
+  width: 320px; /* smaller and balanced */
+  max-width: 90%;
+  box-shadow: 0 2px 6px rgba(91, 129, 193, 0.15);
+  border: 1px solid var(--gray-mid);
 }
+
+
 .search-bar input {
   flex: 1;
   border: none;
   background: transparent;
   outline: none;
   font-size: 14px;
-  color: #555;
+  color: var(--gray-dark);
 }
 
-
 .search-bar input::placeholder {
-  color: #555; 
+  color: #888;
 }
 
 .search-bar button {
   border: none;
-  background: transparent;
+  background: var(--orange);
+  color: var(--white);
   cursor: pointer;
   font-size: 16px;
-  color: rgb(89, 87, 87);
+  padding: 6px 10px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
 }
 
 .search-bar button:hover {
-  background: #aaa;
+  background: var(--blue);
 }
 
-/* Chat section stays fixed on the right */
+
+/* Filter Buttons */
+.filter-buttons {
+  margin-top: 15px;  
+  margin-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+
+.filter-buttons button {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: var(--white);
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.filter-buttons button:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.filter-buttons .active-tag {
+  background: var(--orange);
+  color: var(--white);
+  border-color: var(--orange);
+}
+
+.video-controls {
+  grid-area: controls;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+
+
+/* Video Grid */
+.video-grid {
+  grid-area: videos;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.video-card {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+  max-width: 340px; 
+  height: 300px;
+}
+
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(91, 129, 193, 0.25);
+}
+
+.thumbnail-container {
+  position: relative;
+}
+
+.thumbnail-container img,
+.thumbnail-container iframe {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.thumbnail-container .duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--white);
+  padding: 3px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.video-info {
+  padding: 14px;
+}
+
+.video-info h5 {
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.video-info p {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Chat Section */
 .chat-section {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 320px;
   height: 420px;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(91, 129, 193, 0.3);
   overflow: hidden;
 }
 
-.filter-buttons button {
-  margin: 5px;
-  padding: 8px 14px;
+.chat-header {
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+  color: var(--white);
+  text-align: center;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.chat-section input {
+  width: 100%;
   border: none;
-  background: #eee;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: 0.3s;
+  padding: 10px;
+  outline: none;
+  font-size: 14px;
+  color: var(--gray-dark);
 }
 
-.filter-buttons button:hover {
-  background: #ddd;
+/* Responsive Design */
+@media (max-width: 992px) {
+  .video-app-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .chat-section {
+    height: auto;
+  }
 }
 
-.filter-buttons .active-tag {
-  background: #333;
-  color: white;
-  font-weight: bold;
-}

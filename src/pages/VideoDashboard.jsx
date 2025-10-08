@@ -70,8 +70,9 @@ export default function VideoDashboard() {
       {/* Main Content */}
       <div className="video-dashboard">
         {/* Title */}
-        <h2 className="dashboard-title">Video Rec. Dashboard</h2>
+        <h2 className="video-dashboard-title">Video Rec. Dashboard</h2>
 
+    <div className="video-controls">
         {/* Search input */}
         <div className="search-bar">
           <input
@@ -97,6 +98,7 @@ export default function VideoDashboard() {
             </button>
           ))}
         </div>
+      </div>
 
         {/* Video grid */}
         <div className="video-grid">
