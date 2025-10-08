@@ -58,11 +58,11 @@
   flex: 2;
   background: var(--sel-white);
   border-radius: 10px;
-  padding: 20px 30px; /* slightly larger padding */
+  padding: 20px 30px; 
   width: 100%;
-  max-width: 900px; /* lets it stretch wider */
+  max-width: 900px; 
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
-  margin: 0 auto; /* center it */
+  margin: 0 auto; 
 }
 
 .section-title {
@@ -106,7 +106,7 @@
   color: var(--sel-gray-dark);
 }
 
-/* Action Buttons (Accept / Dismiss) */
+/* Action Buttons */
 .news-actions {
   margin-top: 8px;
 }
@@ -123,7 +123,7 @@
 
 
 .btn-success {
-  background-color: rgba(255, 69, 0, 0.1) !important; /* light, see-through orange */
+  background-color: rgba(255, 69, 0, 0.1) !important; 
   border: 1px solid var(--sel-orange) !important;
   color: var(--sel-orange) !important;
   font-weight: 600;
@@ -134,16 +134,16 @@
 }
 
 .btn-success:hover {
-  background-color: var(--sel-orange) !important; /* solid orange on hover */
+  background-color: var(--sel-orange) !important; 
   color: var(--sel-white) !important;
   border-color: var(--sel-orange-dark) !important;
 }
 
-/* Dismiss Button (Gray) */
+/* Dismiss Button  */
 .btn-secondary {
-  background-color: var(--sel-gray-mid) !important;
-  border-color: var(--sel-gray-mid) !important;
-  color: var(--sel-gray-dark) !important;
+  background-color: var(--sel-blue) !important;
+  border-color: var(--sel-blue) !important;
+  color: var(--sel-white) !important;
   font-weight: 600;
   padding: 6px 14px !important;
   border-radius: 6px !important;
@@ -151,7 +151,7 @@
 }
 
 .btn-secondary:hover {
-  background-color: var(--sel-gray-dark) !important;
+  background-color: #3a5fa0  !important;
   color: var(--sel-white) !important;
   border-color: var(--sel-gray-dark) !important;
 }
@@ -162,7 +162,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: var(--sel-gray-light); /* same as page bg */
+  background: var(--sel-gray-light); 
   border-radius: 10px;
   padding: 0;
   box-shadow: none;
@@ -180,7 +180,7 @@
   flex-direction: column;
 }
 
-/* Top orange header inside chatbot */
+/* Chat header */
 .chat-section .chat-card-header {
   background: linear-gradient(90deg, var(--sel-orange), var(--sel-blue));
   color: var(--sel-white);
@@ -232,7 +232,7 @@
 }
 
 
-/* Responsive Design          */
+/* Responsive Design */
 @media (max-width: 992px) {
   .news-dashboard {
     grid-template-columns: 1fr;

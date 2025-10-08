@@ -55,7 +55,7 @@ export default function Home() {
           Turning scattered school and community data into clear insight — so mentors can connect faster and care deeper.
         </p>
         <button className="cta-btn" onClick={() => navigate("/news")}>
-          View News Agent
+          View Dashboard
         </button>
       </header>
 

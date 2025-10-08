@@ -32,7 +32,7 @@ body {
   width: 230px;
   box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
   position: relative;
-  z-index: 5; /* keep shadow on top */
+  z-index: 5; 
 }
 
 
@@ -61,7 +61,7 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: var(--sel-gray-light); /* same as page bg */
+  background: var(--sel-gray-light); 
   border-radius: 10px;
   padding: 0;
   box-shadow: none;
@@ -79,7 +79,7 @@ body {
   flex-direction: column;
 }
 
-/* Top orange header inside chatbot */
+
 .chat-section .chat-card-header {
   background: linear-gradient(90deg, var(--sel-orange), var(--sel-blue));
   color: var(--sel-white);
@@ -118,7 +118,7 @@ body {
   border-radius: 25px;
   padding: 6px 14px;
   margin: 0 auto 20px auto;
-  width: 320px; /* smaller and balanced */
+  width: 320px; 
   max-width: 90%;
   box-shadow: 0 2px 6px rgba(91, 129, 193, 0.15);
   border: 1px solid var(--gray-mid);

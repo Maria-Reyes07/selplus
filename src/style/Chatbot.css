@@ -1,5 +1,5 @@
 
-/* SEL+ Brand Colors     */
+/* SEL+ Brand Colors */
 :root {
   --sel-orange: #FF4500;
   --sel-orange-dark: #E63E00;
@@ -11,7 +11,7 @@
 }
 
 
-/* Chatbot Container          */
+/* Chatbot Container */
 .chatbot {
   border-radius: 16px;
   width: 100%;
@@ -49,9 +49,8 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* ========================== */
-/* Messages                   */
-/* ========================== */
+
+/* Messages */
 .chatbot-messages {
   flex: 1;
   padding: 15px;
@@ -85,9 +84,7 @@
   justify-content: flex-end;
 }
 
-/* ========================== */
-/* Avatar                     */
-/* ========================== */
+/* Avatar  */
 .chat-avatar {
   width: 32px;
   height: 32px;
@@ -102,7 +99,7 @@
   margin: 0 8px;
 }
 
-/* Bubbles                    */
+/* Bubbles  */
 .chat-bubble {
   padding: 10px 14px;
   border-radius: 18px;
@@ -132,7 +129,7 @@
 
 
 
-/* Input Area                 */
+/* Input Area */
 .chatbot-input {
   display: flex;
   align-items: center;
@@ -161,7 +158,7 @@
 }
 
 
-/* Send Button                */
+/* Send Button  */
 .chatbot-input button {
   flex: 0 0 auto;
   width: 44px;

@@ -21,7 +21,6 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* When you scroll down a bit, give it a subtle background + shadow */
 .top-nav.scrolled {
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -36,7 +35,6 @@
   transition: color 0.3s ease;
 }
 
-/* Hover underline animation */
 .top-nav a::after {
   content: "";
   position: absolute;
@@ -57,13 +55,13 @@
   width: 100%;
 }
 
-/* Active link styling */
+
 .top-nav a.active {
   color: var(--orange);
   font-weight: 600;
 }
 
-/* Push down the first section so it’s not hidden under the fixed navbar */
+
 .home-container {
   padding-top: 80px;
 }
@@ -215,7 +213,7 @@
   color: #666;
 }
 
-/* ─── Features Section ───────────────────────────── */
+/* Features Section */
 
 .features-section {
   background: linear-gradient(180deg, #fff 0%, #f9fafb 100%);
