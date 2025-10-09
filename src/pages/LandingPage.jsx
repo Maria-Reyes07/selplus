@@ -40,16 +40,21 @@ export default function Home() {
     <div className="home-container">
       {/* Top Navbar */}
       <nav className="top-nav">
-        <a href="#hero" className={activeSection === "hero" ? "active" : ""}>Home</a>
-        <a href="#about" className={activeSection === "about" ? "active" : ""}>About</a>
-        <a href="#features" className={activeSection === "features" ? "active" : ""}>Features</a>
-        <a href="#team" className={activeSection === "team" ? "active" : ""}>Team</a>
-        <a href="#contact" className={activeSection === "contact" ? "active" : ""}>Contact</a>
+        <div className="nav-left">
+          <img src={selLogo} alt="SELgentic Logo" className="sel-logo" />
+        </div>
+        <div className="nav-right">
+          <a href="#hero" className={activeSection === "hero" ? "active" : ""}>Home</a>
+          <a href="#about" className={activeSection === "about" ? "active" : ""}>About</a>
+          <a href="#features" className={activeSection === "features" ? "active" : ""}>Features</a>
+          <a href="#team" className={activeSection === "team" ? "active" : ""}>Team</a>
+          <a href="#contact" className={activeSection === "contact" ? "active" : ""}>Contact</a>
+        </div>
       </nav>
+
 
       {/* Hero Section */}
       <header id="hero" className="hero">
-        <img src={selLogo} alt="SELgentic Logo" className="sel-logo" />
         <h1 className="title">SELgentic</h1>
         <p className="subtitle">
           Turning scattered school and community data into clear insight — so mentors can connect faster and care deeper.

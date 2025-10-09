@@ -22,19 +22,18 @@ html, body {
 /* Match sidebar + grid columns and ensure full width/height */
 .video-app-layout {
   display: grid;
-  grid-template-columns: 230px minmax(0, 1fr); /* ✅ match sidebar & allow proper fill */
-  min-height: 100vh;
-  width: 100%;
-  background: var(--gray-light);
-  overflow-x: hidden;
+  grid-template-columns: 260px 1fr 350px; /* sidebar | content | chatbot */
+  height: 100vh;
 }
 
 /* Sidebar */
 .video-app-layout .sidebar {
-  width: 230px; /* ✅ keep consistent with grid */
-  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; /* stays full screen */
+  width: 260px;
+  z-index: 100;
 }
 
 /* Main Page Content */
@@ -50,7 +49,12 @@ html, body {
   padding: 40px 20px;
   box-sizing: border-box;
   position: relative;
+  margin-right: 350px; /* same width as chatbot */
+  transition: margin-right 0.3s ease;
+  margin-left: 40px;
 }
+
+
 
 /* Ensure nested layouts stretch correctly */
 .video-dashboard,
@@ -182,14 +186,15 @@ img, iframe {
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  justify-content: center;
-  justify-items: center;
+  grid-template-columns: repeat(2, 1fr); /* ✅ 2 fixed columns */
   gap: 25px;
   width: 100%;
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
+  justify-items: center;
 }
+
+
 
 /* Video Card */
 .video-card {
@@ -271,7 +276,50 @@ img, iframe {
   pointer-events: none;
 }
 
+/* === Chat Panel Styles === */
+.chat-panel {
+  position: fixed;
+  top: 0;
+  right: -380px; /* hidden off screen */
+  width: 350px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+  border-left: 1px solid #e5e5e5;
+  transition: right 0.4s ease;
+  z-index: 1500;
+  display: flex;
+  flex-direction: column;
+}
 
+.chat-panel.open {
+  right: 0; /* slides in */
+}
+
+/* Toggle Button */
+.chat-toggle-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--orange);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 1600;
+}
+
+.chat-toggle-btn:hover {
+  background-color: var(--blue);
+}
+
+.chat-toggle-btn i {
+  font-size: 20px;
+}
 
 
 

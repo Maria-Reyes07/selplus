@@ -4,6 +4,10 @@ import ChatBot from "../components/ChatBot";
 import "../style/VideoRec.css";
 
 export default function VideoDashboard() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const toggleChat = () => setIsChatOpen(!isChatOpen);
+
   const tags = [
     "All",
     "Middle School",
@@ -33,12 +37,10 @@ export default function VideoDashboard() {
       <Sidebar />
 
       <div className="video-page-content">
-        {/* === Header Section === */}
         <div className="video-header">
-          <h2 className="video-dashboard-title">Video Rec. Dashboard</h2>
+          <h2 className="video-dashboard-title">Training Recommender</h2>
 
           <div className="video-controls">
-            {/* Search Bar */}
             <div className="search-bar">
               <input
                 type="text"
@@ -51,7 +53,6 @@ export default function VideoDashboard() {
               </button>
             </div>
 
-            {/* Filter Tags */}
             <div className="filter-buttons">
               {tags.map((tag) => (
                 <button
@@ -66,41 +67,37 @@ export default function VideoDashboard() {
           </div>
         </div>
 
-        {/* === Video Grid Section === */}
         <div className="video-dashboard">
           <div className="video-grid">
-            {filteredVideos.length > 0 ? (
-              filteredVideos.map((video) => (
-                <div key={video.id} className="video-card">
-                  <div className="thumbnail-container">
-                    <iframe
-                      width="100%"
-                      height="160"
-                      src={`https://www.youtube.com/embed/${video.videoId}`}
-                      title={video.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-
-                  <div className="video-info">
-                    <h5>{video.title}</h5>
-                    <p>Rationale: {video.rationale}</p>
-                  </div>
+            {filteredVideos.map((video) => (
+              <div key={video.id} className="video-card">
+                <div className="thumbnail-container">
+                  <iframe
+                    width="100%"
+                    height="160"
+                    src={`https://www.youtube.com/embed/${video.videoId}`}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </div>
-              ))
-            ) : (
-              <p>No videos found</p>
-            )}
+                <div className="video-info">
+                  <h5>{video.title}</h5>
+                  <p>Rationale: {video.rationale}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
       <ChatBot />
+
     </div>
   );
 }
+
 
 
 

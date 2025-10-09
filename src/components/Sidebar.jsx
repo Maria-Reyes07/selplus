@@ -19,15 +19,15 @@ export default function Sidebar() {
           </NavLink>
 
           <NavLink to="/news" className="nav-item">
-            <i className="bi bi-newspaper"></i> AI News Agent
+            <i className="bi bi-newspaper"></i> News Agent
           </NavLink>
 
           <NavLink to="/videos" className="nav-item">
-            <i className="bi bi-play-circle"></i> Video Rec.
+            <i className="bi bi-play-circle"></i> Training Recommender
           </NavLink>
 
           <NavLink to="/groups" className="nav-item">
-            <i className="bi bi-people"></i> Group Rec.
+            <i className="bi bi-people"></i> Group Curriculum Designer
           </NavLink>
         </nav>
       </div>

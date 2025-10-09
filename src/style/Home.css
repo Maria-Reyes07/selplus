@@ -7,58 +7,48 @@
 
 /* Active Nav Link */
 .top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo left, links right */
+  background: #fff;
+  padding: 10px 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 15px 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  right: 0;
   z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  height: 70px;
 }
 
-.top-nav.scrolled {
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.nav-left {
+  display: flex;
+  align-items: center;
 }
 
-.top-nav a {
+.sel-logo {
+  width: 100px;
+  height: auto;
+  cursor: pointer;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* spacing between links */
+}
+
+.nav-right a {
   text-decoration: none;
-  color: var(--blue);
+  color: #333;
   font-weight: 500;
-  font-size: 1rem;
-  position: relative;
+  font-size: 16px;
   transition: color 0.3s ease;
 }
 
-.top-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background-color: var(--orange);
-  transition: width 0.3s ease;
-}
-
-.top-nav a:hover {
+.nav-right a:hover,
+.nav-right a.active {
   color: var(--orange);
-}
-
-.top-nav a:hover::after,
-.top-nav a.active::after {
-  width: 100%;
-}
-
-
-.top-nav a.active {
-  color: var(--orange);
-  font-weight: 600;
 }
 
 
@@ -70,14 +60,15 @@
 
 /* Hero Section */
 .hero {
+  background: url("../assets/background.png") center/cover no-repeat;
   text-align: center;
   padding: 100px 20px;
-  background: linear-gradient(180deg, #fff 0%, #f9fafb 100%);
-}
-
-.sel-logo {
-  width: 100px;
-  margin-bottom: 15px;
+  margin-bottom: 40px;
+  min-height: 70vh; /* takes up 90% of the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center content */
+  align-items: center; /* horizontally center content */
 }
 
 .title {
@@ -110,7 +101,7 @@
 
 /* Sections */
 .section {
-  padding: 80px 10%;
+  padding: 45px 0;
   text-align: center;
   background-color: var(--bg-light);
 }
@@ -165,6 +156,7 @@
 /* Team Section */
 .team-section {
   padding: 60px 10%;
+  margin-bottom: 20px;
 }
 
 .team-grid {
@@ -217,7 +209,7 @@
 
 .features-section {
   background: linear-gradient(180deg, #fff 0%, #f9fafb 100%);
-  padding: 100px 10%;
+  padding: 60px 10%;
 }
 
 .features-section h2 {

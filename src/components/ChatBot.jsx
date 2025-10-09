@@ -3,7 +3,7 @@ import "../style/ChatBot.css";
 
 export default function ChatBot() {
   const [messages, setMessages] = useState([]);
-  const [showChatbot, setShowChatbot] = useState(false)
+  const [showChatbot, setShowChatbot] = useState(true)
 
   const handleSend = (text) => {
     setMessages([...messages, { sender: "user", text }]);
@@ -13,12 +13,6 @@ export default function ChatBot() {
     <div className={`chatbot-wrapper ${showChatbot ? "show-chatbot" : ""}`}>
         <button 
         onClick={() => setShowChatbot((prev) => !prev)} id="chatbot-toggle">
-          <span>
-            <i className="bi bi-chat-right-text-fill"></i>
-          </span>
-          <span>
-            <i className="bi bi-x-lg"></i>
-          </span>
         </button>
       <div className="chatbot">
         {/* Header */}
@@ -26,7 +20,6 @@ export default function ChatBot() {
           <i className="bi bi-robot chatbot-icon"></i>
           <h3 className="chatbot-title">Chatbot</h3>
           <p className="chatbot-subtitle">AI Agent</p>
-          <button onClick={() => setShowChatbot((prev) => !prev)} className="bi bi-box-arrow-in-down-right"></button>
         </div>
 
         {/* Messages */}

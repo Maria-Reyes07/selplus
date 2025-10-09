@@ -1,5 +1,4 @@
 
-/* SEL+ Brand Colors */
 :root {
   --sel-orange: #FF4500;
   --sel-orange-dark: #E63E00;
@@ -12,82 +11,40 @@
 }
 
 
-/* Chatbot Container */
-
 .chatbot-wrapper {
   position: fixed;
-  bottom: 30px; /* distance from screen bottom */
-  right: 35px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  z-index: 9999;
+  top: 0;
+  right: 0;
+  z-index: 1600;
 }
 
-/* Hide by default */
+
 .chatbot {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(30px); 
-  transition: all 0.3s ease;
-  max-width: 360px;
-  height: 480px;
-  border-radius: 16px;
+  position: fixed;
+  top: 0;
+  right: 0;               /* hidden by default */
+  width: 300px;
+  height: 100vh;
   background: var(--sel-white);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-left: 1px solid var(--sel-gray-mid);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+  transition: right 0.4s ease;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  margin-bottom: 55px; 
-}
-
-/* When visible, move it upward into view */
-.chatbot-wrapper.show-chatbot .chatbot {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-/* Rotate toggle when open */
-.chatbot-wrapper.show-chatbot #chatbot-toggle {
-  transform: rotate(90deg);
-  transition: transform 0.3s ease;
-}
-
-/* Hide the first span (chat icon) when open */
-#chatbot-toggle span:first-child {
-  opacity: 1;
-  transition: opacity 0.2s ease;
-}
-
-.chatbot-wrapper.show-chatbot #chatbot-toggle span:first-child {
-  opacity: 0;
-}
-
-/* Show the second span (X icon) only when open */
-#chatbot-toggle span:last-child {
-  opacity: 0;
-  position: absolute;
-  transition: opacity 0.2s ease;
-}
-
-.chatbot-wrapper.show-chatbot #chatbot-toggle span:last-child {
-  opacity: 1;
 }
 
 
 
-/* Header */
 .chatbot-header {
   background: linear-gradient(135deg, var(--sel-orange), var(--sel-orange-dark));
   padding: 15px 10px;
   text-align: center;
   color: var(--sel-white);
+  position: relative;
 }
 
 .chatbot-title {
   margin: 0;
-  color: var(--sel-white);
   font-weight: 700;
   font-size: 1.3rem;
   letter-spacing: 0.5px;
@@ -99,27 +56,28 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-.chatbot-header button{
-  position: absolute;  
+/* Optional close/minimize button inside header */
+.chatbot-header button {
+  position: absolute;
   top: 10px;
   right: 10px;
   border: none;
   outline: none;
   color: var(--sel-white);
+  background: none;
   cursor: pointer;
   font-size: 20px;
   padding: 6px;
   border-radius: 50%;
-  background: none;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.chatbot-header button:hover{
+.chatbot-header button:hover {
   background-color: var(--sel-orange-dark);
   transform: scale(1.1);
 }
 
-/* Messages */
+
 .chatbot-messages {
   flex: 1;
   padding: 15px;
@@ -139,21 +97,17 @@
   background: var(--sel-gray-mid);
 }
 
+/* Message bubbles */
 .chat-message {
   display: flex;
   align-items: flex-end;
   margin-bottom: 12px;
 }
 
-.chat-message.bot-msg {
-  justify-content: flex-start;
-}
+.chat-message.bot-msg { justify-content: flex-start; }
+.chat-message.user-msg { justify-content: flex-end; }
 
-.chat-message.user-msg {
-  justify-content: flex-end;
-}
-
-/* Avatar  */
+/* Avatar */
 .chat-avatar {
   width: 32px;
   height: 32px;
@@ -168,7 +122,7 @@
   margin: 0 8px;
 }
 
-/* Bubbles  */
+/* Message Bubble Styles */
 .chat-bubble {
   padding: 10px 14px;
   border-radius: 18px;
@@ -197,8 +151,6 @@
 }
 
 
-
-/* Input Area */
 .chatbot-input {
   display: flex;
   align-items: center;
@@ -226,10 +178,7 @@
   box-shadow: 0 0 4px rgba(255, 69, 0, 0.4);
 }
 
-
-/* Send Button  */
 .chatbot-input button {
-  flex: 0 0 auto;
   width: 44px;
   height: 44px;
   border: none;
@@ -252,25 +201,10 @@
   font-size: 16px;
 }
 
-#chatbot-toggle{
-  position: fixed;
-  bottom: 30px;
-  right: 35px;
-  border: none;
-  height: 50px;
-  width: 50px;
-  display: flex;
-  cursor: pointer;
-  border-radius: 50%;
-  background: var(--sel-blue);
-  align-items: center;
-  justify-content: center;
-}
 
-#chatbot-toggle span{
-  position: absolute;
-  color: var(--sel-white);
-}
+
+
+
 
 
 
