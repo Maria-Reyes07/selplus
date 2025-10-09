@@ -3,6 +3,7 @@
 :root {
   --sel-orange: #FF4500;
   --sel-orange-dark: #E63E00;
+  --sel-blue: #5B81C1;
   --sel-white: #FFFFFF;
   --sel-gray-light: #F9F9F9;
   --sel-gray-mid: #E5E5E5;
@@ -12,22 +13,71 @@
 
 
 /* Chatbot Container */
-.chatbot {
-  border-radius: 16px;
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
+
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 30px; /* distance from screen bottom */
+  right: 35px;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  z-index: 9999;
+}
+
+/* Hide by default */
+.chatbot {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(30px); 
+  transition: all 0.3s ease;
+  max-width: 360px;
+  height: 480px;
+  border-radius: 16px;
   background: var(--sel-white);
-  height: 640px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  font-family: "Poppins", "Segoe UI", Roboto, sans-serif;
-  box-sizing: border-box;
+  margin-bottom: 55px; 
+}
+
+/* When visible, move it upward into view */
+.chatbot-wrapper.show-chatbot .chatbot {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Rotate toggle when open */
+.chatbot-wrapper.show-chatbot #chatbot-toggle {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+/* Hide the first span (chat icon) when open */
+#chatbot-toggle span:first-child {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.chatbot-wrapper.show-chatbot #chatbot-toggle span:first-child {
+  opacity: 0;
+}
+
+/* Show the second span (X icon) only when open */
+#chatbot-toggle span:last-child {
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.2s ease;
+}
+
+.chatbot-wrapper.show-chatbot #chatbot-toggle span:last-child {
+  opacity: 1;
 }
 
 
-/* Header                     */
+
+/* Header */
 .chatbot-header {
   background: linear-gradient(135deg, var(--sel-orange), var(--sel-orange-dark));
   padding: 15px 10px;
@@ -49,6 +99,25 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
+.chatbot-header button{
+  position: absolute;  
+  top: 10px;
+  right: 10px;
+  border: none;
+  outline: none;
+  color: var(--sel-white);
+  cursor: pointer;
+  font-size: 20px;
+  padding: 6px;
+  border-radius: 50%;
+  background: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.chatbot-header button:hover{
+  background-color: var(--sel-orange-dark);
+  transform: scale(1.1);
+}
 
 /* Messages */
 .chatbot-messages {
@@ -183,6 +252,25 @@
   font-size: 16px;
 }
 
+#chatbot-toggle{
+  position: fixed;
+  bottom: 30px;
+  right: 35px;
+  border: none;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  cursor: pointer;
+  border-radius: 50%;
+  background: var(--sel-blue);
+  align-items: center;
+  justify-content: center;
+}
+
+#chatbot-toggle span{
+  position: absolute;
+  color: var(--sel-white);
+}
 
 
 

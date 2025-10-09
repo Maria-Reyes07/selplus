@@ -63,9 +63,7 @@ export default function NewsDashboard() {
           </div>
 
           {/* Chatbot */}
-          <div className="chat-section">
             <ChatBot />
-          </div>
         </div>
       </div>
     </div>

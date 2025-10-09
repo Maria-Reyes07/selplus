@@ -1,4 +1,3 @@
-
 /* SEL+ Colors */
 :root {
   --blue: #5B81C1;
@@ -10,106 +9,84 @@
   --gray-dark: #444444;
 }
 
-
-/* General Layout */
-body {
+/* BASE LAYOUT */
+html, body {
   margin: 0;
-  background-color: var(--gray-light);
-  font-family: "Poppins", Helvetica, sans-serif;
+  padding: 0;
+  width: 100%;
+  background: var(--gray-light);
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
+/* Match sidebar + grid columns and ensure full width/height */
 .video-app-layout {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 230px minmax(0, 1fr); /* ✅ match sidebar & allow proper fill */
+  min-height: 100vh;
+  width: 100%;
   background: var(--gray-light);
-  min-height: 100vh;     
-  overflow-y: auto;      
-  overflow-x: hidden;    
+  overflow-x: hidden;
 }
 
-
+/* Sidebar */
 .video-app-layout .sidebar {
-  width: 230px;
+  width: 230px; /* ✅ keep consistent with grid */
   box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
   position: relative;
-  z-index: 5; 
+  z-index: 5;
 }
 
-
-
-/* Main content */
-.video-dashboard {
-  display: grid;
-  grid-template-areas:
-    "title title"
-    "controls controls"
-    "videos chat";
-  grid-template-columns: 2fr 0.8fr; /* main | chat */
-  grid-template-rows: auto auto 1fr;
-  gap: 30px;
-  padding: 30px;
+/* Main Page Content */
+.video-page-content {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   background: var(--gray-light);
-  color: var(--gray-dark);
-  height: 100%;
+  width: 100%;
+  min-height: 100vh; /* ✅ fills screen height */
+  padding: 40px 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Ensure nested layouts stretch correctly */
+.video-dashboard,
+.video-dashboard-inner,
+.video-grid {
+  width: 100%;
   box-sizing: border-box;
 }
 
-
-/* Chatbot Section */
-.chat-section {
-  grid-area: chat;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  background: var(--sel-gray-light); 
-  border-radius: 10px;
-  padding: 0;
-  box-shadow: none;
-  border: none;
+/* Prevent any element from forcing overflow */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+img, iframe {
+  max-width: 100%;
+  height: auto;
 }
 
-/* Inner chatbot card */
-.chat-section .chat-card {
-  background: var(--sel-white);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-
-.chat-section .chat-card-header {
-  background: linear-gradient(90deg, var(--sel-orange), var(--sel-blue));
-  color: var(--sel-white);
-  padding: 14px;
+/* ===============================
+   HEADER SECTION
+================================= */
+.video-header {
+  width: 100%;
   text-align: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-/* Chat input area */
-.chat-section .chat-input {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-top: 1px solid var(--sel-gray-mid);
-  background: var(--sel-white);
-}
-
-
-.video-dashboard-title {
-  grid-area: title;
-  text-align: center;
-  font-size: 30px;
-  font-weight: 700;
-  color: var(--blue);
+  padding: 30px 20px;
   margin-bottom: 10px;
 }
 
+.video-dashboard-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 20px;
+}
 
-/* Search Bar */
+/* SEARCH BAR */
 .search-bar {
   display: flex;
   align-items: center;
@@ -118,12 +95,11 @@ body {
   border-radius: 25px;
   padding: 6px 14px;
   margin: 0 auto 20px auto;
-  width: 320px; 
+  width: 320px;
   max-width: 90%;
   box-shadow: 0 2px 6px rgba(91, 129, 193, 0.15);
   border: 1px solid var(--gray-mid);
 }
-
 
 .search-bar input {
   flex: 1;
@@ -153,17 +129,15 @@ body {
   background: var(--blue);
 }
 
-
-/* Filter Buttons */
+/* FILTER BUTTON */
 .filter-buttons {
-  margin-top: 15px;  
+  margin-top: 15px;
   margin-bottom: 25px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
 }
-
 
 .filter-buttons button {
   padding: 8px 16px;
@@ -187,24 +161,37 @@ body {
   border-color: var(--orange);
 }
 
-.video-controls {
-  grid-area: controls;
+/* ===============================
+   VIDEO GRID
+================================= */
+.video-dashboard {
+  display: flex;
+  justify-content: center;
+  background: var(--gray-light);
+  width: 100%;
+}
+
+.video-dashboard-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
 }
 
-
-
-/* Video Grid */
 .video-grid {
-  grid-area: videos;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  justify-content: center;
+  justify-items: center;
   gap: 25px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
+/* Video Card */
 .video-card {
   background: var(--white);
   border-radius: 12px;
@@ -212,27 +199,29 @@ body {
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   width: 100%;
-  max-width: 340px; 
+  max-width: 340px;
   height: 300px;
+  justify-self: center;
 }
 
-
 .video-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   box-shadow: 0 6px 18px rgba(91, 129, 193, 0.25);
 }
 
+/* Thumbnail */
 .thumbnail-container {
   position: relative;
 }
 
-.thumbnail-container img,
-.thumbnail-container iframe {
+.thumbnail-container iframe,
+.thumbnail-container img {
   width: 100%;
   height: 160px;
   object-fit: cover;
 }
 
+/* Duration Tag */
 .thumbnail-container .duration {
   position: absolute;
   bottom: 8px;
@@ -244,6 +233,7 @@ body {
   border-radius: 4px;
 }
 
+/* Video Info */
 .video-info {
   padding: 14px;
 }
@@ -260,36 +250,29 @@ body {
   color: #666;
 }
 
-/* Chat Section */
-.chat-section {
+/* CHATBOT */
+.chatbot-wrapper {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 320px;
-  height: 420px;
-  background: var(--white);
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(91, 129, 193, 0.3);
-  overflow: hidden;
+  bottom: 30px;
+  right: 35px;
+  z-index: 2000;
 }
 
-.chat-header {
-  background: linear-gradient(90deg, var(--blue), var(--orange));
-  color: var(--white);
-  text-align: center;
-  padding: 12px;
-  font-weight: 600;
-  font-size: 1rem;
+.show-chatbot .chatbot {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
-.chat-section input {
-  width: 100%;
-  border: none;
-  padding: 10px;
-  outline: none;
-  font-size: 14px;
-  color: var(--gray-dark);
+.chatbot {
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
 }
+
+
+
 
 
 

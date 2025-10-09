@@ -18,12 +18,10 @@
   --sel-shadow-mid: rgba(0, 0, 0, 0.1);
 }
 
+
+
 /* Layout  */
 .news-dashboard {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 1.8fr .8fr; /* News | Chatbot */
-  grid-column-gap: 40px;
   height: 100%;
   width: 100%;
   margin-left: 100px;
@@ -31,7 +29,7 @@
 
 .app-layout {
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 230px 1fr;
   min-height: 100vh;
   background: var(--sel-gray-light);
 }
@@ -154,49 +152,6 @@
   background-color: #3a5fa0  !important;
   color: var(--sel-white) !important;
   border-color: var(--sel-gray-dark) !important;
-}
-
-
-/* Chatbot Section */
-.chat-section {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  background: var(--sel-gray-light); 
-  border-radius: 10px;
-  padding: 0;
-  box-shadow: none;
-  border: none;
-}
-
-/* Inner chatbot card */
-.chat-section .chat-card {
-  background: var(--sel-white);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.08);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Chat header */
-.chat-section .chat-card-header {
-  background: linear-gradient(90deg, var(--sel-orange), var(--sel-blue));
-  color: var(--sel-white);
-  padding: 14px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-/* Chat input area */
-.chat-section .chat-input {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-top: 1px solid var(--sel-gray-mid);
-  background: var(--sel-white);
 }
 
 
